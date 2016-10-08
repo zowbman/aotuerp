@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.aotuspace.aotuerp.web.sptreasure.hbm">
+    <class name="SpAotuerpTreasureImg" table="sp_aotuerp_treasure_img" dynamic-insert="true" dynamic-update="true">
+        <id name="spId" column="sp_id" type="integer">
+            <generator class="native" />
+        </id>
+        
+        <property name="spImg" column="sp_Img" type="string">
+        </property>
+        
+        <property name="spIsprimary" column="sp_IsPrimary" type="integer">
+        </property>
+        
+        <property name="spImgorder" column="sp_ImgOrder" type="integer">
+        </property>
+        
+        <property name="spImgsize" column="sp_ImgSize" type="long">
+        </property>
+        
+        <property name="spImgwidth" column="sp_ImgWidth" type="integer">
+        </property>
+        
+        <property name="spImgheight" column="sp_ImgHeight" type="integer">
+        </property>
+        
+        <!-- 原图 -->
+        <many-to-one name="orginalImg" class="SpAotuerpTreasureImg" column="sp_OrginalImgId"></many-to-one>
+        
+        <!-- 缩略图 -->
+        <set name="thumbnails" cascade="all">
+        	<key column="sp_OrginalImgId"></key>
+        	<one-to-many class="SpAotuerpTreasureImg"/>
+        </set>
+        
+        <set name="spAotuerpTreasureInfos" table="sp_aotuerp_treasure_img_relation">
+            <key column="sp_TreasureImgId">
+            </key>
+            <many-to-many class="SpAotuerpTreasureInfo" column="sp_TreasureId"/>
+        </set>
+        
+    </class>
+</hibernate-mapping>

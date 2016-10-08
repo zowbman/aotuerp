@@ -1,0 +1,47 @@
+.textbox{
+	height: 22px;
+	padding: 0 2px;
+}
+
+.textarea{
+	line-height:22px;
+	font-family: Arial;
+	height: 50px;
+	min-width:520px;
+	max-width: 520px;
+	overflow:scroll;
+	overflow-x:hidden;
+}
+#aotuwarehouse_add .save_table,#aotuwarehouse_edit .save_table{
+	font-size: 12px;
+	background: rgb(237, 244, 255);
+	border-bottom: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+}
+
+#aotuwarehouse_add .save_table td,#aotuwarehouse_edit .save_table td{
+	height: 36px;
+	/* width:100px; */
+	border-left: 1px solid #ccc;
+	border-top: 1px solid #ccc;
+	padding: 10px;
+}
+
+ #aotuwarehouse_add .save_table th,#aotuwarehouse_edit .save_table th{
+	height: 36px;
+    width:80px; 
+	border-left: 1px solid #ccc;
+	border-top: 1px solid #ccc;
+	background: rgb(215, 229, 250);
+	font-weight: normal;
+	text-align: left;
+	padding:0 0 0 10px;
+}
+
+.disabled{
+	background: #eee;
+}
+
+.datebox-button td{
+	text-align: center;
+}

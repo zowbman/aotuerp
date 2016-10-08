@@ -1,0 +1,153 @@
+.textboxcommodity {
+	height: 22px;
+	padding: 0 2px;
+	position: relative;
+	border: 1px solid #95B8E7;
+	background-color: #fff;
+	vertical-align: middle;
+	display: inline-block;
+	overflow: hidden;
+	white-space: nowrap;
+	margin: 0;
+	padding: 0;
+	width: 170px;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-radius:0;
+}
+
+
+.textarea{
+	line-height:22px;
+	font-family: Arial;
+	height: 100px;
+	width:800px;
+	resize:none;
+	overflow:scroll;
+	overflow-x:hidden;
+	position: relative;
+  	border: 1px solid #95B8E7;
+ 	background-color: #fff;
+  	vertical-align: middle;
+  	display: inline-block;
+  	white-space: nowrap;
+  	margin: 0;
+  	padding: 0;
+}
+
+.disabled{
+	background: #eee;
+}
+
+/*类别品牌选择*/
+#category_brands{
+    float:left;
+	width:940px;
+	margin-left:15px;
+}
+#category_brands .datalist{
+	float:left;
+}
+
+.sp_spu_brand{
+	margin:8px 0 8px 0 ;
+	height: 22px;
+}
+
+.sp_spu_brand span {
+	display: block;
+	width: 75px;
+	float: left;
+	text-align: right;
+	line-height: 22px; 
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-radius:0;
+}
+
+/*销售属性*/
+#sp_sku_pro,#sp_spu_pro,#sp_sku_pro_edit,#sp_spu_pro_edit{
+	margin-left:15px;
+}
+#sp_sku_pro span.title,#sp_spu_pro span.title,#sp_sku_pro_edit span.title,#sp_spu_pro_edit span.title{
+	display:block;
+	margin:5px 0 5px 0;
+}
+
+#sp_sku_pro input[type="checkbox"],#sp_spu_pro input[type="checkbox"],#sp_sku_pro_edit input[type="checkbox"],#sp_spu_pro_edit input[type="checkbox"]{
+  margin:0;
+  margin-right:5px;
+  vertical-align: middle;
+}
+#sp_sku_pro label,#sp_spu_pro label,#sp_sku_pro_edit label,#sp_spu_pro_edit label{
+  margin-right:5px;
+  vertical-align: middle;
+}
+
+#sp_sku_pro td,#sp_spu_pro td,#sp_sku_pro_edit td,#sp_spu_pro_edit td{
+	height: 30px;
+	vertical-align: middle;
+}
+
+.sp_ul{
+	padding:0;
+}
+
+.sp_ul li{
+	list-style: none;
+	line-height: 30px;
+}
+
+.sp_ul span{
+	width: 75px;
+	display: block;
+	float:left;
+	text-align: right;
+}
+
+
+#agreement{
+	float:left;
+	margin-top:10px;
+}
+
+#agreement input{
+	margin-top:10px;
+}
+
+/*商品属性*/
+.skin{
+	background: #f8f8f8;
+	border:1px solid #ececec;
+	padding:10px 0 10px 10px;
+	
+}
+
+#process{
+	border-bottom: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+}
+
+#process td{
+	padding: 5px;
+	border-left: 1px solid #ccc;
+	border-top: 1px solid #ccc;
+}
+
+
+#category_brands_edit{
+	display:block;
+	background: #fffee6;
+	height:42px;
+	margin:10px 5px 5px 5px;
+}
+
+#category_brands_edit span{
+	line-height: 40px;
+	color: #8f5700;
+	margin-left:10px;
+}
+
+.datebox-button td{
+	text-align: center;
+}

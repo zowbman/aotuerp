@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.aotuspace.aotuerp.web.sperplogin.hbm">
+
+	<class name="SpEmployeeStation" table="sp_employee_station">
+	
+	    <id name="spId" column="sp_id" >
+			<generator class="native"/>
+		</id>
+		<property name="spEpstn" column="sp_EpStN" type="string"></property>
+		
+		<!-- 岗位表  对 员工的多对多 -->
+  		<set name="spEmployeeBinfos"  table="sp_emp_sta_relation" >
+			<key column="sp_EpStaId"></key>
+			<many-to-many class="SpEmployeeBinfo">
+				<column name="sp_id"></column>
+				<column name="sp_EpId"></column>
+			</many-to-many>
+		</set>
+		 
+		<!-- spEmployeePrivileges属性, 本类与SpemployeePrivilege的多对多 -->
+	 	<set name="spEmployeePrivileges" table="sp_aotuspace_emp_sta_priv" lazy="false">
+			<key column="sp_EpStaId"></key>
+			<many-to-many class="SpEmployeePrivilege" column="sp_EpPriId"></many-to-many>
+		</set>
+		
+		<!-- spEpstparent属性，本类与SpemployeeStation(上级)的多对一 -->
+		
+		<many-to-one name="spEpstparent" class="SpEmployeeStation" column="sp_EpStParentId" lazy="false"></many-to-one>
+		
+		<!-- spEpstchildren属性，本类与SpemployeeStation(下级)的一对多 -->
+		
+		<set name="spEpstchildren">
+			<key column="sp_EpStParentId"></key>
+			<one-to-many class="SpEmployeeStation"/>
+		</set>
+		
+	</class>  
+
+</hibernate-mapping>

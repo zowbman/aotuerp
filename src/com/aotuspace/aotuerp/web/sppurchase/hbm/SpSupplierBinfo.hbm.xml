@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.aotuspace.aotuerp.web.sppurchase.hbm">
+	<class name="SpSupplierBinfo" table="sp_supplier_binfo" dynamic-insert="true">
+		<composite-id name="spSupplierBinfoKey" class="com.aotuspace.aotuerp.web.sppurchase.hbm.SpSupplierBinfoKey">
+			<!-- key-property标签表示哪一些属性对应复合主键 -->
+			<key-property name="spId" column="sp_id"></key-property>
+			<key-property name="spSuid" column="sp_SuId"></key-property>
+		</composite-id>
+		
+		<property name="spSuaccount" column="sp_SuAccount" type="string"></property>
+		<property name="spSupassword" column="sp_SuPassword" type="string"></property>
+		
+		<!-- class可以不写，因为根据name的值spSupplierDinfo(属性)，会通过反射自动找到属于哪个类的 -->
+		<one-to-one name="spSupplierDinfo" class="SpSupplierDinfo">
+		</one-to-one>
+	</class>  
+
+	
+</hibernate-mapping>

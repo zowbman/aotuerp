@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.aotuspace.aotuerp.web.spwarehouse.hbm">
+	<class name="SpAotuerpProductStocks" table="sp_aotuerp_product_stocks">
+		<id name="spId" column="sp_id">
+			<generator class="native" />
+		</id>
+	<!-- 	<property name="spPdskuid" column="sp_PdskuId" type="integer"></property>
+		<property name="spWarehouseid" column="sp_WarehouseId" type="integer"></property> -->
+		<property name="spQuantity" column="sp_Quantity" type="long"></property>
+		<property name="spQuantitymin" column="sp_QuantityMin" type="long"></property>
+		<property name="spQuantitymax" column="sp_QuantityMax" type="long"></property>
+		
+		<many-to-one name="spProductSku" class="com.aotuspace.aotuerp.web.spcommodity.hbm.SpProductSku" column="sp_PdSkuId">
+        </many-to-one>
+        
+        <set name="spAotuerpWarehouseInfos" table="sp_aotuerp_warehouse_product_stocks">
+            <key column="sp_ProductStocksId">
+            </key>
+            <many-to-many class="SpAotuerpWarehouseInfo" column="sp_WarehouseId"/>
+        </set>
+        
+	</class>
+</hibernate-mapping>

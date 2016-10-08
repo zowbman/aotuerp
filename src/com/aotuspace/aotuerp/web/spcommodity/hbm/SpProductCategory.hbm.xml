@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.aotuspace.aotuerp.web.spcommodity.hbm">
+	<class dynamic-insert="true" name="SpProductCategory" table="sp_product_category">
+		<id column="sp_id" name="spId" type="integer">
+			<generator class="native" />
+		</id>
+		<property column="sp_CategoryN" name="spCategoryn" type="string" />
+		<!-- <property column="sp_CategoryPId" name="spCategorypid" type="integer" /> -->
+		<!-- 属性名 -->
+		<set name="spProductPropertyNames">
+			<key column="sp_CategoryId">
+			</key>
+			<one-to-many class="SpProductPropertyName" />
+		</set>
+		
+		<!-- 属性值 -->
+		<set name="spProductPropertyValues">
+			<key column="sp_CategoryId">
+			</key>
+			<one-to-many class="SpProductPropertyValue" />
+		</set>
+		
+		<!-- 父类目 -->
+		<set name="spProductCategories">
+			<key column="sp_CategoryPId">
+			</key>
+			<one-to-many class="SpProductCategory" />
+		</set>
+		
+		<!-- 父类目 -->
+		<many-to-one name="spProductCategory" class="SpProductCategory"
+			column="sp_CategoryPId">
+		</many-to-one>
+		
+		<!-- 品牌 -->
+		<set name="spProductBrandses">
+			<key column="sp_CategoryId">
+			</key>
+			<one-to-many class="SpProductBrands" />
+		</set>
+
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,90 @@
+.multimage-info {
+  border: 2px solid #fff;
+  background-color: #f8f8f8;
+  text-align: center;
+  padding: 10px;
+}
+
+.info-wrapper {
+  text-align: left;
+}
+
+.multimage-info .msg {
+  color: #AAA;
+}
+.multimage-info .msg .bright {
+  color: #f60;
+}
+
+/*Ö÷Í¼*/
+.multimage-gallery .primary {
+  margin-left: 0;
+  border: 1px solid #ffc097;
+}
+
+
+.multimage-gallery li {
+  font-size: 0;
+  display: inline-block;
+  border: 1px solid #CDCDCD;
+  margin-right: 10px;
+  position: relative;
+  vertical-align: top;
+ 
+}
+.multimage-gallery li,.multimage-gallery .info {
+  width: 90px;
+  height: 90px;
+  overflow: hidden;
+}
+
+.multimage-gallery .preview {
+  z-index: 4;
+  text-align: center;
+  line-height: 90px;
+  font-family: arial;
+  background-color: #fff;
+  display: none;
+  position: absolute;
+}
+.multimage-gallery .has-img .preview{
+	display: block;
+}
+
+/*´¹Ö±¾ÓÖÐ*/
+.multimage-gallery .has-img .preview {
+  display: list-item;
+  vertical-align: middle;
+}
+ 
+.multimage-gallery .preview img{
+  max-height: 90px;
+  max-width: 90px;
+  vertical-align: middle;
+}
+
+.multimage-gallery .info{
+  position: absolute;
+  left: 0;
+}
+.multimage-gallery .info {
+  z-index: 3;
+  text-align: center;
+  top: 30px;
+  font-size: 12px;
+}
+.bright {
+  color: #f60;
+}
+.multimage-gallery .preview{
+  width: 90px;
+  height: 90px;
+  overflow: hidden;
+}
+
+
+
+
+
+
+

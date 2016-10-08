@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.aotuspace.aotuerp.web.sperplogin.hbm">
+	<class name="SpEmployeeDepart" table="sp_employee_depart">
+	    <id name="spId" column="sp_id" type="integer" >
+			<generator class="native"/>
+		</id>
+		<property name="spEpdepartn" column="sp_EpDepartN" type="string"></property>
+		
+		<set name="spEmployeeBinfos">
+			<key column="sp_EpDepart"></key>
+			<one-to-many class="SpEmployeeBinfo"/>
+		</set>
+		
+		<!-- spEpdeparent属性，本类与SpEmployeeDepart(上级)的多对一 -->
+		<many-to-one name="spEpdeparent" class="SpEmployeeDepart" column="sp_EpDeParentId" lazy="false"></many-to-one>
+		
+		<!-- spEpdechildren属性，本类与SpEmployeeDepart(下级)的一对多 -->
+		<set name="spEpdechildren">
+			<key column="sp_EpDeParentId"></key>
+			<one-to-many class="SpEmployeeDepart"/>
+		</set>
+	</class>  
+
+</hibernate-mapping>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.aotuspace.aotuerp.web.sperplogin.hbm">
+	<class name="SpEmployeeBinfo" table="sp_employee_binfo">
+		<composite-id name="spEmployeeBinfoKey" class="com.aotuspace.aotuerp.web.sperplogin.hbm.SpEmployeeBinfoKey">
+			<!-- key-property标签表示哪一些属性对应复合主键 -->
+			<key-property name="spId" column="sp_id"></key-property>
+			<key-property name="spEpid" column="sp_EpId"></key-property>
+		</composite-id>
+		
+		<property name="spEpaccount" column="sp_EpAccount" type="string"></property>
+		<property name="spEppassword" column="sp_EpPassword" type="string"></property>
+		
+		
+		<!--spEddepartn 属性，本类员工表对   部门   的多对一  -->
+	  	<many-to-one name="spEmployeeDepart" class="SpEmployeeDepart" column="sp_EpDepart" lazy="false"></many-to-one>
+		
+		<!-- spEmployeeStations属性， 员工表   对   岗位    的多对多 -->
+ 	 	<set name="spEmployeeStations" table="sp_emp_sta_relation" lazy="false">
+			<key>
+				<column name="sp_id"></column>
+				<column name="sp_EpId"></column>
+			</key>
+			<many-to-many class="SpEmployeeStation" column="sp_EpStaId"></many-to-many>
+		</set>
+		
+		  <!-- class可以不写，因为根据name的值spEmployeeDinfo(属性)，会通过反射自动找到属于哪个类的   --> 
+		 <one-to-one name="spEmployeeDinfo" class="SpEmployeeDinfo" lazy="false" cascade="all">
+		 </one-to-one>
+	</class>  
+
+</hibernate-mapping>

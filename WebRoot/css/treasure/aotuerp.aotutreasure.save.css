@@ -1,0 +1,70 @@
+
+#treasureShelvesOrder_tool{
+	height:32px;
+	padding:5px;
+	background: #F4F4F4;
+	line-height: 32px;
+}
+
+.sp_treasure_title,.sp_treasure_selling_points,.sp_treasure_spu_pro_title{
+	margin:8px 0 8px 0 ;
+	height: 22px;
+}
+
+.sp_treasure_title span,.sp_treasure_selling_points span,.sp_treasure_spu_pro_title span{
+	display: block;
+	width: 75px;
+	float: left;
+	text-align: right;
+	line-height: 22px; 
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-radius:0;
+}
+
+
+#sp_treasure_sku_pro,#sp_treasure_category_brands,#sp_treasure_spu_pro,#sp_treasure_img,#sp_treasure_description{
+	margin-left:15px;
+	margin-right: 30px;
+}
+#sp_treasure_sku_pro span.title,#sp_treasure_category_brands span.title,#sp_treasure_spu_pro span.title,#sp_treasure_img span.title,#sp_treasure_description span.title{
+	display:block;
+	margin:5px 0 5px 0;
+}
+
+
+
+#sp_treasure_sku_pro td{
+	height: 30px;
+	vertical-align: middle;
+}
+
+/*…Ã∆∑ Ù–‘*/
+.skin{
+	background: #f8f8f8;
+	border:1px solid #ececec;
+	padding:10px 0 10px 10px;
+	
+}
+
+#TreasureProcess{
+	border-bottom: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+}
+
+#TreasureProcess td{
+	padding: 5px;
+	border-left: 1px solid #ccc;
+	border-top: 1px solid #ccc;
+}
+
+#sp_treasure_submit {
+	margin-top:20px;
+	background:#F4F4F4;
+	height: 42px;
+	text-align: center;
+}
+
+.disabled{
+	background: #eee;
+}

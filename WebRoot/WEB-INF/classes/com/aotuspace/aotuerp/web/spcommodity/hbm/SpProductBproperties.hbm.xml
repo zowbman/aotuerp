@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.aotuspace.aotuerp.web.spcommodity.hbm">
+	<class dynamic-insert="true" name="SpProductBproperties" table="sp_product_bproperties" >
+		<id column="sp_id" name="spId" type="integer">
+			<generator class="native" />
+		</id>
+		<!-- <property column="sp_PdId" name="spPdid" type="string" /> -->
+		<!-- <property column="sp_PropertyNameId" name="spPropertynameid" type="string" /> -->
+		<!-- <property column="sp_PropertyValueId" name="spPropertyvalueid" type="string" /> -->
+		<property column="sp_IsSku" name="spIssku" type="integer" />
+	
+		<many-to-one name="spProductSku" column="sp_SkuId" class="SpProductSku"></many-to-one>
+		
+		<many-to-one name="spProductPropertyName" class="SpProductPropertyName" column="sp_PropertyNameId" lazy="false">
+        </many-to-one>
+		
+		<many-to-one name="spProductPropertyValue" column="sp_PropertyValueId" class="SpProductPropertyValue">
+        </many-to-one>
+        
+        <many-to-one name="spProductBinfo" class="SpProductBinfo" column="sp_PdId">
+        </many-to-one>
+        
+	</class>
+</hibernate-mapping>

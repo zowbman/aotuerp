@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.aotuspace.aotuerp.web.sppurchase.hbm">
+    <class name="SpAotuerpPurchaseOrderPd" table="sp_aotuerp_purchase_order_pd">
+        <id name="spId" column="sp_id" type="integer">
+            <generator class="native" />
+        </id>
+        <!-- sku -->
+        <many-to-one name="spProductSku" column="sp_SkuId" class="com.aotuspace.aotuerp.web.spcommodity.hbm.SpProductSku"></many-to-one>
+        
+        <property name="spQuantity" column="sp_Quantity" type="integer">
+        </property>
+        
+        <property name="spUnitprice" column="sp_UnitPrice" type="long">
+        </property>
+        
+        <property name="spTotalprice" column="sp_TotalPrice" type="long">
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<!-- 配置为开发模式 -->
+	<constant name="struts.devMode" value="true" />
+	<!-- 把扩展名配置为action -->
+	<constant name="struts.action.extension" value="action" />
+	<!-- 把主题设置为simple -->
+	<constant name="struts.ui.theme" value="simple" />
+	
+	<!-- ckfinder的请求不经过struts2框架处理  --> <!-- 此处是正则表达式，并非URL匹配地址 -->
+	<constant name="struts.action.excludePattern" value="/ckfinder.*"/>
+	
+	<package name="default" namespace="/" extends="json-default">
+	<interceptors>
+		<!-- 声明拦截器 -->
+		<!-- <interceptor name="checkPrivilege"
+			class="com.aotuspace.aotucms.web.util.CheckPrivilegeInterceptor"></interceptor> -->
+		<!-- 重新定义默认的拦截器栈 -->
+		<interceptor-stack name="defaultStack">
+			<!-- <interceptor-ref name="checkPrivilege"></interceptor-ref> --><!-- 权限拦截 -->
+			<interceptor-ref name="json"/>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		</interceptor-stack>
+	</interceptors>
+	
+	<!-- <global-results>
+	无权限的提示页面
+		<result name="noPrivilegeError">/WEB-INF/jsp/pub/noPriv.jsp</result>
+	</global-results> -->
+	
+	
+	<action name="sysmm_*" class="sysMMAction" method="{1}">
+	</action>
+		
+	<!-- aotuerp入口 -->
+	<action name="aotuerp_*" class="aotuerpAction" method="{1}">
+		<result name="aotuerp_login">/WEB-INF/jsp/aotuerp_login.jsp</result>
+		<result name="aotuerp_admin">/WEB-INF/jsp/aotuerp_admin.jsp</result>
+	</action>
+	
+	<!-- 商品管理模块 -->
+	<action name="commodity_*" class="commodityAction" method="{1}">
+		<result name="list">/WEB-INF/jsp/commodity/commodity.jsp</result>
+	</action>
+	
+	<!-- 库存管理模块 -->
+	<action name="warehouse_*" class="warehouseAction" method="{1}">
+		<result name="list">/WEB-INF/jsp/warehouse/warehouse.jsp</result>
+		<result name="pdList">/WEB-INF/jsp/warehouse/warehousePd.jsp</result>
+	</action>
+	
+	<!--  采购管理模块 -->
+	<action name="purchase_*" class="purchaseAction" method="{1}">
+		<result name="list">/WEB-INF/jsp/purchase/list.jsp</result>
+		<result name="purchaseOrdersAdd">/WEB-INF/jsp/purchase/purchaseOrders.jsp</result>
+		<result name="purchaseStorageOrdersAdd">/WEB-INF/jsp/purchase/purchaseStorageOrders.jsp</result>
+		<result name="purchaseStorageInquire">/WEB-INF/jsp/purchase/purchaseStorageInquire.jsp</result>
+	</action>
+	
+	<!--  采购管理模块 -->
+	<action name="spsupplier_*" class="spSupplierAction" method="{1}">
+	</action>
+	
+	<!--  宝贝管理模块 -->
+	<action name="treasure_*" class="treasureAction" method="{1}">
+		<result name="treasureShelvesOrderList">/WEB-INF/jsp/treasure/treasureShelvesOrderList.jsp</result>
+		<result name="treasureShelvesOrder">/WEB-INF/jsp/treasure/treasureShelvesOrder.jsp</result>
+		<result name="treasureShelvesOrderForm">/WEB-INF/jsp/treasure/treasureShelvesOrderForm.jsp</result>
+	</action>
+	
+	<!--  宝贝管理模块 -->
+	<action name="treasuretask_*" class="treasureTaskAction" method="{1}">
+		<result name="index">/WEB-INF/jsp/treasure/task/treasureTask.jsp</result>
+		<result name="release">/WEB-INF/jsp/treasure/task/treasureTaskRelease.jsp</result>
+		<result name="releaseForm">/WEB-INF/jsp/treasure/task/treasureTaskReleaseForm.jsp</result>
+	</action>
+	
+	</package>
+</struts>

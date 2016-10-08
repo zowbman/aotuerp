@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.aotuspace.aotuerp.web.spcommodity.hbm">
+	<class dynamic-insert="true" name="SpProductPropertyName" table="sp_product_property_name">
+		<id column="sp_id" name="spId" type="integer">
+			<generator class="native" />
+		</id>
+		<!-- <property column="sp_ParentPValue" name="spParentpvalue" type="int" /> -->
+		<property column="sp_PropertyName" name="spPropertyname" type="string" />
+		<property column="sp_alias" name="spAlias" type="string" />
+		<!-- <property column="sp_CategoryId" name="spCategoryid" type="int" /> -->
+		<property column="sp_IsColorPro" name="spIscolorpro" type="integer" />
+		<property column="sp_IsEnumPro" name="spIsenumpro" type="integer" />
+		<property column="sp_IsImportPro" name="spIsimportpro" type="integer" />
+		<property column="sp_IsKeyPro" name="spIskeypro" type="integer" />
+		<property column="sp_IsSearchPro" name="spIssearchpro" type="integer" />
+		<property column="sp_IsRequirePro" name="spIsrequirepro" type="integer" />
+		<property column="sp_IsMultiselectPro" name="spIsmultiselectpro" type="integer" />
+		<property column="sp_IsSalePro" name="spIssalepro" type="integer" />
+		<property column="sp_Sort" name="spSort" type="integer"/>
+		
+		<!-- <property column="sp_ParentId" name="spParentid" type="int" /> -->
+		
+		<many-to-one name="spProductPropertyName" class="SpProductPropertyName" column="sp_ParentId">
+		</many-to-one>
+		<many-to-one name="spProductPropertyValue" class="SpProductPropertyValue" column="sp_ParentPValue">
+		</many-to-one>
+		<many-to-one name="spProductCategory" class="SpProductCategory" column="sp_CategoryId">
+		</many-to-one>
+		
+		<set name="spProductPropertyValues">
+            <key column="sp_PropertyNameId">
+            </key>
+            <one-to-many class="SpProductPropertyValue" />
+        </set>
+        
+        <set name="spProductPropertyNames">
+            <key column="sp_ParentId">
+            </key>
+            <one-to-many class="SpProductPropertyName" />
+        </set>
+        
+        <set name="spProductBpropertieses">
+            <key column="sp_PropertyNameId">
+            </key>
+            <one-to-many class="SpProductBproperties" />
+        </set>
+        
+	</class>
+</hibernate-mapping>

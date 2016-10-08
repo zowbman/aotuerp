@@ -1,0 +1,91 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+<session-factory>
+	<!-- 1，数据库连接信息 -->
+	<property name="dialect"><!-- org.hibernate.dialect.SQLServerDialect sqlServer的方言-->
+		org.hibernate.dialect.MySQLDialect<!-- mysql的方言 -->
+	</property>
+
+	<!--2，其他配置 -->
+	<property name="show_sql">true</property>
+	<!-- <property name="hbm2ddl.auto">update</property> -->
+
+	<!-- 3，导入映射文件 -->
+	<!-- 员工 -->
+	<mapping
+		resource="com/aotuspace/aotuerp/web/sperplogin/hbm/SpEmployeeBinfo.hbm.xml" />
+	<mapping
+		resource="com/aotuspace/aotuerp/web/sperplogin/hbm/SpEmployeeStation.hbm.xml" />
+	<mapping
+		resource="com/aotuspace/aotuerp/web/sperplogin/hbm/SpEmployeePrivilege.hbm.xml" />
+	<mapping
+		resource="com/aotuspace/aotuerp/web/sperplogin/hbm/SpEmployeeDepart.hbm.xml" />
+	<mapping
+		resource="com/aotuspace/aotuerp/web/sperplogin/hbm/SpEmployeeDinfo.hbm.xml" />
+	<!-- 商品 -->	
+	<mapping
+		resource="com/aotuspace/aotuerp/web/spcommodity/hbm/SpProductBinfo.hbm.xml" />
+	<mapping
+		resource="com/aotuspace/aotuerp/web/spcommodity/hbm/SpProductBproperties.hbm.xml" />
+	<mapping
+		resource="com/aotuspace/aotuerp/web/spcommodity/hbm/SpProductBrands.hbm.xml" />
+	<mapping
+		resource="com/aotuspace/aotuerp/web/spcommodity/hbm/SpProductCategory.hbm.xml" />
+	<mapping
+		resource="com/aotuspace/aotuerp/web/spcommodity/hbm/SpProductPropertyName.hbm.xml" />
+		<mapping
+		resource="com/aotuspace/aotuerp/web/spcommodity/hbm/SpProductPropertyValue.hbm.xml" />
+	<mapping
+		resource="com/aotuspace/aotuerp/web/spcommodity/hbm/SpProductSku.hbm.xml" />
+	<mapping
+		resource="com/aotuspace/aotuerp/web/spcommodity/hbm/SpProductStatus.hbm.xml" />
+		
+	<!-- 仓库 -->	
+	<mapping
+		resource="com/aotuspace/aotuerp/web/spwarehouse/hbm/SpAotuerpWarehouseInfo.hbm.xml" />
+	<mapping
+		resource="com/aotuspace/aotuerp/web/spwarehouse/hbm/SpAotuerpProductStocks.hbm.xml" />
+		
+	<!-- 采购 -->
+	<mapping
+		resource="com/aotuspace/aotuerp/web/sppurchase/hbm/SpSupplierBinfo.hbm.xml" />
+	<mapping
+		resource="com/aotuspace/aotuerp/web/sppurchase/hbm/SpSupplierDinfo.hbm.xml" />
+	 <mapping
+		resource="com/aotuspace/aotuerp/web/sppurchase/hbm/SpAotuerpPurchaseOrders.hbm.xml" />
+	<mapping
+		resource="com/aotuspace/aotuerp/web/sppurchase/hbm/SpAotuerpPurchaseOrderPd.hbm.xml" />
+	<mapping
+		resource="com/aotuspace/aotuerp/web/sppurchase/hbm/SpAotuerpPurchaseOrdersStatus.hbm.xml" />
+	<mapping
+		resource="com/aotuspace/aotuerp/web/sppurchase/hbm/SpAotuerpPurchaseList.hbm.xml" />
+	<mapping
+		resource="com/aotuspace/aotuerp/web/sppurchase/hbm/SpAotuerpPurchaseListPd.hbm.xml" />
+	<mapping
+		resource="com/aotuspace/aotuerp/web/sppurchase/hbm/SpAotuerpPurchaseOrdersNumbers.hbm.xml" />
+		
+	<!-- 销售管理 -->
+	<mapping
+		resource="com/aotuspace/aotuerp/web/sptreasure/hbm/SpAotuerpTreasureInfo.hbm.xml" />
+	<mapping
+		resource="com/aotuspace/aotuerp/web/sptreasure/hbm/SpAotuerpTreasureImg.hbm.xml" />
+	 <mapping
+		resource="com/aotuspace/aotuerp/web/sptreasure/hbm/SpAotuerpTreasureProductSku.hbm.xml" />
+	<mapping
+		resource="com/aotuspace/aotuerp/web/sptreasure/hbm/SpAotuerpTreasureStatus.hbm.xml" />
+	
+	<!-- 任务 -->
+	<mapping
+		resource="com/aotuspace/aotuerp/web/sptreasure/hbm/SpAotuerpTreasureTask.hbm.xml" />
+	<mapping
+		resource="com/aotuspace/aotuerp/web/sptreasure/hbm/SpAotuerpTreasureTaskLevel.hbm.xml" />
+	<mapping
+		resource="com/aotuspace/aotuerp/web/sptreasure/hbm/SpAotuerpTreasureTaskLevelProfit.hbm.xml" />
+	<mapping
+		resource="com/aotuspace/aotuerp/web/sptreasure/hbm/SpAotuerpTreasureTaskStatus.hbm.xml" />
+	<mapping
+		resource="com/aotuspace/aotuerp/web/sptreasure/hbm/SpAotuerpTreasureTaskMode.hbm.xml" />
+</session-factory>
+</hibernate-configuration>

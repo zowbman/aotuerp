@@ -1,0 +1,48 @@
+#purchaseOrders_tool,#purchaseStorageOrders_tool{
+	height:32px;
+	padding:5px;
+	background: #F4F4F4;
+	line-height: 32px;
+}
+
+#baseInfo,#baseInfo-pso{
+	margin-top:-10px;
+	float:left;
+	width:1150px;
+	margin-left:-75px;
+}
+
+#baseInfo li,#baseInfo-pso li{
+	text-align:right;
+	width:270px;
+	float:left;
+	padding:7px;
+}
+
+#baseInfo li span.textbox,#baseInfo-pso li span.textbox{
+	text-align:left;
+}
+
+
+#addPdSku-body .hint{
+	display:block;
+	background: #fffee6;
+	height:42px;
+	/* margin:5px; */
+	width:100%;
+}
+
+#addPdSku-body .hint span{
+	line-height: 40px;
+	color: #8f5700;
+	margin-left:10px;
+}
+
+#purchaseStorageInquire-check-dialog .purchaseStorageNum,#purchaseStorageInquire-check-dialog .explanation{
+	font-size: 18px;
+	  padding: 20 0 0 20;
+}
+
+.disabled{
+	background: #eee;
+}

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.aotuspace.aotuerp.web.sppurchase.hbm">
+
+    <class name="SpAotuerpPurchaseOrders" table="sp_aotuerp_purchase_orders" dynamic-insert="true" dynamic-update="true">
+        <id name="spId" column="sp_id" type="integer">
+             <generator class="native" />
+        </id>
+        
+        <!-- 一对一  -->
+     	<many-to-one name="spAotuerpPurchaseOrdersNumbers" column="sp_PurchaseOrderId" class="SpAotuerpPurchaseOrdersNumbers" unique="true">
+        </many-to-one>
+        
+        <!-- 经办人 -->
+        <many-to-one name="spEmployeeBinfo" class="com.aotuspace.aotuerp.web.sperplogin.hbm.SpEmployeeBinfo">
+            <column name="sp_EmpId">
+            </column>
+            <column name="sp_EmpEpId">
+            </column>
+        </many-to-one>
+        
+        <!-- 仓库 -->
+        <many-to-one name="spAotuerpWarehouseInfo" class="com.aotuspace.aotuerp.web.spwarehouse.hbm.SpAotuerpWarehouseInfo">
+            <column name="sp_WarehouseId">
+            </column>
+        </many-to-one>
+        
+        <!-- 供货单位 -->
+        <many-to-one name="spSupplierBinfo" class="SpSupplierBinfo" >
+            <column name="sp_SupplierId" >
+            </column>
+            <column name="sp_SupplierSuId">
+            </column>
+        </many-to-one>
+        
+        <!-- 订单进度 -->
+        <many-to-one name="spAotuerpPurchaseOrdersStatus" class="SpAotuerpPurchaseOrdersStatus">
+            <column name="sp_ProgressId">
+            </column>
+        </many-to-one>
+        
+        <!-- 订单商品 -->
+        <set name="spAotuerpPurchaseOrderPds" cascade="all">
+			<key column="sp_POPdId">
+			</key>
+			<one-to-many class="SpAotuerpPurchaseOrderPd"/>
+		</set>
+
+        <property name="spOrdercontractid" column="sp_OrderContractId" type="integer">
+        </property>
+        
+        <property name="spCreatedate" column="sp_CreateDate" type="timestamp">
+        </property>
+        
+        <property name="spPlanarrivaldate" column="sp_PlanArrivalDate" type="timestamp">
+        </property>
+        
+        <property name="spOrderamount" column="sp_OrderAmount" type="long">
+        </property>
+        
+        <property name="spFinishdate" column="sp_FinishDate" type="timestamp">
+        </property>
+        
+        <property name="spRemark" column="sp_Remark" type="string">
+        </property>
+        
+        <!-- 进货单 -->
+        <one-to-one name="spAotuerpPurchaseList" class="SpAotuerpPurchaseList"></one-to-one>
+
+    </class>
+</hibernate-mapping>

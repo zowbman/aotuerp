@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.aotuspace.aotuerp.web.spcommodity.hbm">
+	<class dynamic-insert="true" name="SpProductStatus" table="sp_product_status">
+		<id column="sp_id" name="spId" type="integer">
+			<generator class="native" />
+		</id>
+		<property column="sp_StatusN" name="spStatusn" type="string" />
+	</class>
+</hibernate-mapping>

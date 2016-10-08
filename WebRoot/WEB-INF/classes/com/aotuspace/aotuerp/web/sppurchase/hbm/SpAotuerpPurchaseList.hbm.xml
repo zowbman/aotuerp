@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.aotuspace.aotuerp.web.sppurchase.hbm">
+    <class name="SpAotuerpPurchaseList" table="sp_aotuerp_purchase_list">
+        <id name="spId" column="sp_id" type="integer">
+            <generator class="native" />
+        </id>
+        <!-- 员工 -->
+        <many-to-one name="spEmployeeBinfo" class="com.aotuspace.aotuerp.web.sperplogin.hbm.SpEmployeeBinfo">
+            <column name="sp_EmpId">
+            </column>
+            <column name="sp_EmpEpId">
+            </column>
+        </many-to-one>
+        
+        <!-- 仓库 -->
+        <many-to-one name="spAotuerpWarehouseInfo" column="sp_WarehouseId" class="com.aotuspace.aotuerp.web.spwarehouse.hbm.SpAotuerpWarehouseInfo">
+        </many-to-one>
+        
+        <!-- 供货单位 -->
+        <many-to-one name="spSupplierBinfo" class="SpSupplierBinfo">
+            <column name="sp_SupplierId">
+            </column>
+            <column name="sp_SupplierSuId">
+            </column>
+        </many-to-one>
+        
+        <!-- 进货单商品 -->
+        <set name="spAotuerpPurchaseListPds" cascade="all">
+			<key column="sp_PSOPdId">
+			</key>
+			<one-to-many class="SpAotuerpPurchaseListPd"/>
+		</set>
+		
+		<many-to-one name="spAotuerpPurchaseOrders" column="sp_PurchaseOrderId" class="SpAotuerpPurchaseOrders" unique="true">
+        </many-to-one>
+        
+        <property name="spPurchaseId" column="sp_PurchaseId" type="string" unique="true">
+        </property>
+        
+        <property name="spPaymentdate" column="sp_PaymentDate" type="timestamp">
+        </property>
+        
+        <property name="spIsinvoice" column="sp_IsInvoice" type="integer">
+        </property>
+        
+        <property name="spPaymentamount" column="sp_PaymentAmount" type="long">
+        </property>
+        
+        <property name="spCreatedate" column="sp_CreateDate" type="timestamp">
+        </property>
+        
+        <property name="spFinishdate" column="sp_FinishDate" type="timestamp">
+        </property>
+        
+        <property name="spRemark" column="sp_Remark" type="string">
+        </property>
+        
+    </class>
+</hibernate-mapping>

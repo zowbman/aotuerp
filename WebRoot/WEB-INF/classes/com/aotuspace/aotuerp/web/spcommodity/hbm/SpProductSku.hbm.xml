@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.aotuspace.aotuerp.web.spcommodity.hbm">
+	<class dynamic-insert="true" name="SpProductSku" table="sp_product_sku">
+		<id column="sp_SkuId" name="spSkuid" type="integer">
+			<generator class="native" />
+		</id>
+		<!-- <property column="sp_PdId" name="spPdid" type="integer" /> -->
+		<property column="sp_PdCount" name="spPdcount" type="integer" />
+		<property column="sp_PdPrice" name="spPdprice" type="long" />
+		<!-- <property column="sp_PdStatus" name="spPdstatus" type="int" /> -->
+		<property column="sp_SkuPropertiesName" name="spSkupropertiesname" type="string" />
+		<property column="sp_SkuProperties" name="spSkuproperties" type="string" />
+		<property column="sp_PdCreDate" name="spPdcredate" type="timestamp" />
+		<!-- 商品 -->
+        <many-to-one name="spProductBinfo" class="SpProductBinfo" column="sp_PdId">
+        </many-to-one>
+        <!-- 状态 -->
+        <many-to-one name="spProductStatus" class="SpProductStatus" column="sp_PdStatus">
+        </many-to-one>
+        
+         <set name="spProductBpropertieses" inverse="true" cascade="delete" >
+            <key column="sp_SkuId">
+            </key>
+            <one-to-many class="SpProductBproperties"/>
+        </set>
+	</class>
+</hibernate-mapping>

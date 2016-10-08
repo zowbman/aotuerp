@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.aotuspace.aotuerp.web.sppurchase.hbm">
+    <class name="SpAotuerpPurchaseOrdersStatus" table="sp_aotuerp_purchase_orders_status">
+        <id name="spId" column="sp_id" type="integer">
+            <generator class="native" />
+        </id>
+        <property name="spStatusn" column="sp_StatusN" type="string">
+        </property>
+        <!-- 进货订单 -->
+       <!--  <set name="spAotuerpPurchaseOrderses">
+            <key>
+                <column name="sp_ProgressId">
+                </column>
+            </key>
+            <one-to-many class="SpAotuerpPurchaseOrders" />
+        </set> -->
+    </class>
+</hibernate-mapping>

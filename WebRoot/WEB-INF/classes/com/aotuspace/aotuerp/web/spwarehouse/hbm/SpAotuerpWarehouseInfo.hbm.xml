@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.aotuspace.aotuerp.web.spwarehouse.hbm" >
+	<class name="SpAotuerpWarehouseInfo" table="sp_aotuerp_warehouse_info" dynamic-insert="true" dynamic-update="true">
+		<id name="spId" column="sp_id">
+			<generator class="native" />
+		</id>
+		<property name="spWarehousename" column="sp_WarehouseName" type="string"></property>
+		<property name="spRemark" column="sp_Remark" type="string"></property>
+		<property name="spPinyin" column="sp_Pinyin" type="string"></property>
+		<property name="spAddress" column="sp_Address" type="string"></property>
+		
+		<set name="spEmployeeBinfos" table="sp_aotuerp_emp_warehouse" >
+            <key column="sp_WarehouseId">
+            </key>
+            <many-to-many class="com.aotuspace.aotuerp.web.sperplogin.hbm.SpEmployeeBinfo">
+            	<column name="sp_id"></column>
+            	<column name="sp_EmpId"></column>
+            </many-to-many>
+        </set>
+        
+      <!--  <set name="spAotuerpProductStockses" cascade="all" inverse="true">
+            <key column="sp_WarehouseId">
+            </key>
+            <one-to-many class="SpAotuerpProductStocks"/>
+        </set> -->
+        
+        <set name="spAotuerpProductStockses" table="sp_aotuerp_warehouse_product_stocks" cascade="all">
+            <key column="sp_WarehouseId">
+            </key>
+            <many-to-many class="SpAotuerpProductStocks" column="sp_ProductStocksId"/>
+        </set>
+         
+	</class>
+</hibernate-mapping>

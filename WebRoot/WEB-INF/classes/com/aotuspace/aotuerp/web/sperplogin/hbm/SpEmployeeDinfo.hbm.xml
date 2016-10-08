@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.aotuspace.aotuerp.web.sperplogin.hbm">
+	<class name="SpEmployeeDinfo" table="sp_employee_dinfo" dynamic-insert="true">
+		<composite-id name="spEmployeeBinfoKey" class="com.aotuspace.aotuerp.web.sperplogin.hbm.SpEmployeeBinfoKey">
+			<key-property name="spId" column="sp_id"></key-property>
+			<key-property name="spEpid" column="sp_EpId"></key-property>
+		</composite-id> 
+		<property name="spEprealname" column="sp_EpRealName" type="string"></property>
+		<property name="spEpicon" column="sp_EpIcon" type="string"></property>
+		<property name="spEpbirth" column="sp_EpBirth" type="date"></property>
+		<property name="spEpcon" column="sp_EpCon" type="integer"></property>
+		<property name="spEpmobie" column="sp_EpMobie" type="string"></property>
+		<property name="spEpidnum" column="sp_EpIdNum" type="string"></property>
+		<property name="spEpanimal" column="sp_EpAnimal" type="integer"></property>
+		<property name="spEpage" column="sp_EpAge" type="integer"></property>
+		<property name="spEmpdistrict" column="sp_EmpDistrict" type="string"></property>
+		<property name="spEpaddress" column="sp_EpAddress" type="string"></property>
+		<property name="spEpsex" column="sp_EpSex" type="string"></property>
+	</class>  
+</hibernate-mapping>
